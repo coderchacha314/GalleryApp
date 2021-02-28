@@ -1,19 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+<header>
+  <nav class="navbarcolor">
+    <ul class="nav nav-tab">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLinkActiveOption="{exact:true}"
+          routerLink="/"
+          >Home</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/Products"
+          >Products</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">मराठी</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/About"
+          >About</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">English</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/Contact"
+          >Contact us</a
+        >
       </li>
-      </ul>
-  </div>
-</nav>
-<app-footer></app-footer>
+      <li class="nav-item"><a class="nav-link">English</a></li>
+      <li class="nav-item"><a class="nav-link">मराठी</a></li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/Login"
+          >Login</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
+<router-outlet></router-outlet>
