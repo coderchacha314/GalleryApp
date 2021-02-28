@@ -15,13 +15,13 @@
             <label for="price">Product Price</label>
             <input type="text" class="form-control" id="price" #price>
         </div>
-        <button type="button" class="btn btn-primary" (click)="onAddProduct(id,name,price)">Add Product</button>
+        <button type="button" class="btn btn-primary" (click)="onAddProduct(id,name,price)">{{editMode? 'Update Product':'Add Product'}}</button>
         <button type="button" class="btn btn-success mx-2" (click)="onSaveProduct()">Save Product</button>
-        <!-- <button type="button" class="btn btn-warning" (click)="onFetchProduct()">Fetch Product</button> -->
+        <button type="button" class="btn btn-warning" (click)="onFetchProduct()">Fetch Product</button>
     </form>
 </div>
-<div class="col-md-6">
-    <h2>{{dataTitle}}</h2>
+<div class="col-md-7">
+    <h2>{{dataTitle | async}}</h2>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -29,7 +29,8 @@
             <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
-            <th scope="col">Delete</th>
+            <th scope="col">Delete</th> 
+            <th scope="col">Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -39,7 +40,14 @@
           <td>{{mydata.name}}</td>
           <td>{{mydata.price}}</td>
           <td (click)="onDeleteProduct(i)"><a class="text-danger">Delete<i class="glyphicon glyphicon-trash"></i></a></td>
+          <td (click)="onEditProduct(i)"><a class="text-primary">Edit<i class="fa-edit"></i></a></td>
       </tr>
     </tbody>
     </table>
+    <div *ngIf="fetchingData" class="text-center">
+        <div class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          Fetching Data ....
+        </div>
 </div>
